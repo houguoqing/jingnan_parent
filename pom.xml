@@ -9,14 +9,16 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>jingnan_eureka</module>
         <module>jingnan_gateway</module>
         <module>jingnan_service</module>
         <module>jingnan_service_api</module>
         <module>jingnan_web</module>
-        <module>jingnan_eureka</module>
         <module>jingnan_common</module>
         <module>jingnan_common_db</module>
+        <module>jingnan-user-oauth</module>
     </modules>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -24,16 +26,11 @@
     </parent>
 
     <properties>
-        <!--忽略maven构建测试环节-->
         <skipTests>true</skipTests>
     </properties>
 
     <!--依赖包-->
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-        </dependency>
         <!--测试包-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -53,4 +50,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 </project>

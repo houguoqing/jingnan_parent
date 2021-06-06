@@ -10,15 +10,24 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>jingnan_service</artifactId>
-
     <packaging>pom</packaging>
     <modules>
         <module>jingnan_service_goods</module>
+        <module>jingnan_service_order</module>
+        <module>jingnan_service_config</module>
+        <module>jingnan_service_business</module>
+        <module>jingnan_service_user</module>
+        <module>jingnan_service_system</module>
+        <module>jingnan_service_seckill</module>
+        <module>jingnan_service_consume</module>
+        <module>jingnan_service_search</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+    </dependencies>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
 
 </project>

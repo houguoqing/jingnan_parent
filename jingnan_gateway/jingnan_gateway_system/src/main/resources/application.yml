@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: sysgateway
+  cloud:
+    gateway:
+      routes:
+        - id: goods
+          uri: lb://goods
+          predicates:
+            - Path=/goods/**
+          filters:
+            - StripPrefix= 1
+            - name: RequestRateLimiter #请求数限流 名字不能随便写
+              args:
+                key-resolver: "#{@ipKeyResolver}"
+                redis-rate-limiter.replenishRate: 100 # 每秒填充100
+                # 上线是当前系统的并发最大值！
+                redis-rate-limiter.burstCapacity: 100 # 桶的容量
+        - id: system
+          uri: lb://system
+          predicates:
+            - Path=/system/**
+          filters:
+            - StripPrefix= 1
+  # 配置Redis 127.0.0.1可以省略配置
+  redis:
+    host: 192.168.200.128
+    port: 6379
+server:
+  port: 9101
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka
+  instance:
+    prefer-ip-address: true

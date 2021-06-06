@@ -1,11 +1,13 @@
 package com.jn.entity;
 
 /**
- * 常量：
+ * 常量
+ *
  */
 public class Constants {
     //购物车
     public static final String REDIS_CART = "cart_";
+
     //待支付订单key
     public final static String REDIS_ORDER_PAY = "order_pay_";
     //秒杀商品key
